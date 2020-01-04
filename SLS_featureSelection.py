@@ -8,7 +8,7 @@ Created on Tue Aug  6 13:29:13 2019
 ## this code is an optimization on state-of-the-art feature selection methods
 #including SVMRFE, mRMR and HSICLASSO
 #first irrelevant feature are recognized and removed from dataset and then feature selection
-# will be applied on the reduced dataset. Repeated stratified cross validation is used for model creation
+# will be applied on the reduced dataset. Repeated stratified 5-fold cross validation is used for model creation
 # and validation
 ### input : name of dataset , name of feature selection method, name of classification method
 ### outputs: validation metrics (Classification accuracy, Area under the curve, recall, specificity,
@@ -105,7 +105,7 @@ Z = np.matmul(iA,B) # Matrix product of two arrays
 if c<200000:
     threshold = max(abs(Z)) - 0.5* max(abs(Z)); # GSE22619 = 0.8, GSE3365 = 0.5, GSE11223= 0.8
 else:
-    threshold = max(abs(Z)) - .7* max(abs(Z));
+    threshold = max(abs(Z)) - 0.7* max(abs(Z));
     
 abs_Z = abs(Z).tolist()
 #returning the index of features 
